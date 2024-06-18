@@ -7,7 +7,7 @@ public partial class AiModel
 {
     public long AiModelId { get; set; }
 
-    public long? AiModelAuthor { get; set; }
+    public string? AiModelAuthor { get; set; }
 
     public string? AiModelName { get; set; }
 
