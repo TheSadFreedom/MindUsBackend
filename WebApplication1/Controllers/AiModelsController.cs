@@ -29,10 +29,11 @@ namespace WebApplication1.Controllers
         }
 
         // GET: api/AiModels/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<AiModel>> GetAiModel(long id)
+        [HttpGet("{UserLogin}")]
+        public async Task<ActionResult<IEnumerable<AiModel>>> GetAiModel(string UserLogin)
         {
-            var aiModel = await _context.AiModels.FindAsync(id);
+
+            var aiModel = await _context.AiModels.Where(aiModel => aiModel.AiModelAuthor == UserLogin).ToListAsync();
 
             if (aiModel == null)
             {
